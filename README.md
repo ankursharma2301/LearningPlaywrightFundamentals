@@ -37,9 +37,19 @@ npx playwright test tests/01_Basics/Lab209.spec.ts
 
 ```
 ├── tests/
-│   └── 01_Basics/           # Basic Playwright test examples
-│       ├── Lab209.spec.ts   # Title verification test
-│       └── Lab210_Test_Annoations.spec.ts  # Test annotations demo
+│   ├── 01_Basics/                      # Basic Playwright test examples
+│   │   ├── Lab209.spec.ts              # Title verification test
+│   │   ├── Lab210_Test_Annoations.spec.ts  # Test annotations demo
+│   │   └── Util.ts                     # Utility functions
+│   └── 02_first_tests/                 # Browser context and page examples
+│       ├── 211_First_Running_Test.spec.ts  # First running test
+│       ├── 212_Browser_Context_Pages.spec.ts  # Browser, context, pages demo
+│       ├── 213_Multile_Context.spec.ts  # Multiple browser contexts
+│       ├── 214_Multiple_Pages.spec.ts   # Multiple pages handling
+│       ├── 215_TEST_PW.spec.ts          # Playwright test basics
+│       ├── 216_Manual_Context.spec.ts   # Manual context creation
+│       ├── 217_Manual_Context_Options.spec.ts  # Context options
+│       └── 218_Context_Reuse.spec.ts    # Context reuse patterns
 ├── playwright.config.ts     # Playwright configuration
 ├── package.json
 └── .github/
@@ -59,6 +69,14 @@ Demonstrates Playwright test annotations:
 - `test.fail()` - Mark test as expected to fail
 - `test.slow()` - Extend timeout (3x)
 - Conditional skip based on browser
+
+### Browser Context and Pages (02_first_tests)
+Demonstrates browser context and page management:
+- Browser, Context, and Page hierarchy
+- Creating multiple browser contexts
+- Working with multiple pages/tabs
+- Manual context creation and options
+- Context reuse patterns
 
 ## Viewing Reports
 
