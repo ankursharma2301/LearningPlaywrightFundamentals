@@ -31,25 +31,34 @@ npx playwright test --ui
 
 # Run a specific test file
 npx playwright test tests/01_Basics/Lab209.spec.ts
+
+# Run tests from a specific folder
+npx playwright test tests/03_Locators_Commands/
 ```
 
 ## Project Structure
 
 ```
 ├── tests/
-│   ├── 01_Basics/                      # Basic Playwright test examples
-│   │   ├── Lab209.spec.ts              # Title verification test
-│   │   ├── Lab210_Test_Annoations.spec.ts  # Test annotations demo
-│   │   └── Util.ts                     # Utility functions
-│   └── 02_first_tests/                 # Browser context and page examples
-│       ├── 211_First_Running_Test.spec.ts  # First running test
-│       ├── 212_Browser_Context_Pages.spec.ts  # Browser, context, pages demo
-│       ├── 213_Multile_Context.spec.ts  # Multiple browser contexts
-│       ├── 214_Multiple_Pages.spec.ts   # Multiple pages handling
-│       ├── 215_TEST_PW.spec.ts          # Playwright test basics
-│       ├── 216_Manual_Context.spec.ts   # Manual context creation
-│       ├── 217_Manual_Context_Options.spec.ts  # Context options
-│       └── 218_Context_Reuse.spec.ts    # Context reuse patterns
+│   ├── 01_Basics/                              # Basic Playwright test examples
+│   │   ├── Lab209.spec.ts                      # Title verification test
+│   │   ├── Lab210_Test_Annoations.spec.ts      # Test annotations demo
+│   │   └── Util.ts                             # Utility functions
+│   ├── 02_first_tests/                         # Browser context and page examples
+│   │   ├── 211_First_Running_Test.spec.ts      # First running test
+│   │   ├── 212_Browser_Context_Pages.spec.ts   # Browser, context, pages demo
+│   │   ├── 213_Multile_Context.spec.ts         # Multiple browser contexts
+│   │   ├── 214_Multiple_Pages.spec.ts          # Multiple pages handling
+│   │   ├── 215_TEST_PW.spec.ts                 # Playwright test basics
+│   │   ├── 216_Manual_Context.spec.ts          # Manual context creation
+│   │   ├── 217_Manual_Context_Options.spec.ts  # Context options
+│   │   └── 218_Context_Reuse.spec.ts           # Context reuse patterns
+│   ├── 03_Locators_Commands/                   # Locators and navigation commands
+│   │   ├── 219_Commands.spec.ts                # goto waitUntil options
+│   │   ├── 221_Reffer_Command.spec.ts          # Referer header via context
+│   │   ├── 222_Automation.vwo.com.spec.ts      # Locator basics (lazy, strict, auto-wait)
+│   │   └── index.html                          # Sample HTML for practice
+│   └── 220_GotoCommands.spec.ts                # goto + referer options
 ├── playwright.config.ts     # Playwright configuration
 ├── package.json
 └── .github/
@@ -78,6 +87,17 @@ Demonstrates browser context and page management:
 - Manual context creation and options
 - Context reuse patterns
 
+### Goto Commands (220_GotoCommands)
+Demonstrates `page.goto()` options:
+- Default `load` wait strategy
+- Custom `referer` header on navigation
+
+### Locators & Commands (03_Locators_Commands)
+Demonstrates navigation commands and locator fundamentals:
+- `waitUntil` options: `commit`, `domcontentloaded`, `load`, `networkidle`
+- Setting `Referer` header for an entire browser context via `extraHTTPHeaders`
+- Locators are lazy, strict, and auto-waiting (CSS selectors, fill, click, assertions)
+
 ## Viewing Reports
 
 ```bash
@@ -101,6 +121,7 @@ The `playwright.config.ts` file includes:
 - HTML reporter
 - Chromium browser configured
 - Trace collection on first retry
+- Headed mode enabled (`headless: false`) for easier learning and debugging
 
 ## Resources
 
