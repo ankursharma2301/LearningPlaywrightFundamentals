@@ -21,7 +21,12 @@ test("locators are lazy, strict, and auto-wait", async ({ page }) => {
     // class -> .
 
     // Create locators — nothing happens yet (lazy)
-    let usernameField = page.locator("#login-username");
+    // let usernameField = page.locator("#login-username");
+
+    let usernameField = page.locator("xpath=//input[@data-qa='hocewoqisi']")
+
+
+
     let passwordField = page.locator("#login-password");
     let loginButton = page.locator("#js-login-btn");
 

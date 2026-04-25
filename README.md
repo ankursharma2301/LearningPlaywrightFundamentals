@@ -57,6 +57,8 @@ npx playwright test tests/03_Locators_Commands/
 │   │   ├── 219_Commands.spec.ts                # goto waitUntil options
 │   │   ├── 221_Reffer_Command.spec.ts          # Referer header via context
 │   │   ├── 222_Automation.vwo.com.spec.ts      # Locator basics (lazy, strict, auto-wait)
+│   │   ├── 223_Xpath.spec.ts                   # XPath locator example
+│   │   ├── 224_GetRole.spec.ts                 # getByRole locator example
 │   │   └── index.html                          # Sample HTML for practice
 │   └── 220_GotoCommands.spec.ts                # goto + referer options
 ├── playwright.config.ts     # Playwright configuration
@@ -97,6 +99,8 @@ Demonstrates navigation commands and locator fundamentals:
 - `waitUntil` options: `commit`, `domcontentloaded`, `load`, `networkidle`
 - Setting `Referer` header for an entire browser context via `extraHTTPHeaders`
 - Locators are lazy, strict, and auto-waiting (CSS selectors, fill, click, assertions)
+- XPath locators using the `xpath=` prefix (`223_Xpath.spec.ts`)
+- Role-based locators via `getByRole()` for accessible, user-facing queries (`224_GetRole.spec.ts`)
 
 ## Viewing Reports
 
