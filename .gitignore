@@ -6,3 +6,10 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+
+# Saved auth/session state — never commit
+user-session.json
+*-session.json
+
+# OS junk
+.DS_Store

@@ -55,12 +55,18 @@ npx playwright test tests/03_Locators_Commands/
 │   │   └── 218_Context_Reuse.spec.ts           # Context reuse patterns
 │   ├── 03_Locators_Commands/                   # Locators and navigation commands
 │   │   ├── 219_Commands.spec.ts                # goto waitUntil options
+│   │   ├── 220_GotoCommands.spec.ts            # goto + referer options
 │   │   ├── 221_Reffer_Command.spec.ts          # Referer header via context
 │   │   ├── 222_Automation.vwo.com.spec.ts      # Locator basics (lazy, strict, auto-wait)
 │   │   ├── 223_Xpath.spec.ts                   # XPath locator example
 │   │   ├── 224_GetRole.spec.ts                 # getByRole locator example
+│   │   ├── 225_CSS_Locators.spec.ts            # CSS locators with first/nth/last
+│   │   ├── 226_PressSequentially.spec.ts       # pressSequentially + page.goBack
+│   │   ├── 227_Cookie.spec.ts                  # context cookies (read/add/clear)
 │   │   └── index.html                          # Sample HTML for practice
-│   └── 220_GotoCommands.spec.ts                # goto + referer options
+│   └── 04_Session_Storage/                     # Session reuse via storageState
+│       ├── 228_Session.spec.ts                 # Save logged-in session to JSON
+│       └── 229.TestVWo.spec.ts                 # Reuse saved session — skip login
 ├── playwright.config.ts     # Playwright configuration
 ├── package.json
 └── .github/
@@ -101,6 +107,14 @@ Demonstrates navigation commands and locator fundamentals:
 - Locators are lazy, strict, and auto-waiting (CSS selectors, fill, click, assertions)
 - XPath locators using the `xpath=` prefix (`223_Xpath.spec.ts`)
 - Role-based locators via `getByRole()` for accessible, user-facing queries (`224_GetRole.spec.ts`)
+- CSS locators with `first()`, `nth()`, `last()` and iterating via `count()` (`225_CSS_Locators.spec.ts`)
+- `pressSequentially()` for realistic typing and `page.goBack()` navigation (`226_PressSequentially.spec.ts`)
+- Reading, adding, and clearing cookies via `context.cookies()` / `context.addCookies()` (`227_Cookie.spec.ts`)
+
+### Session Storage (04_Session_Storage)
+Demonstrates saving and reusing authenticated browser sessions to skip repetitive logins:
+- `228_Session.spec.ts` — log in once and persist cookies/localStorage with `context.storageState({ path })`
+- `229.TestVWo.spec.ts` — load the saved state via `test.use({ storageState })` and jump straight to authenticated pages
 
 ## Viewing Reports
 
