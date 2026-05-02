@@ -64,9 +64,12 @@ npx playwright test tests/03_Locators_Commands/
 │   │   ├── 226_PressSequentially.spec.ts       # pressSequentially + page.goBack
 │   │   ├── 227_Cookie.spec.ts                  # context cookies (read/add/clear)
 │   │   └── index.html                          # Sample HTML for practice
-│   └── 04_Session_Storage/                     # Session reuse via storageState
-│       ├── 228_Session.spec.ts                 # Save logged-in session to JSON
-│       └── 229.TestVWo.spec.ts                 # Reuse saved session — skip login
+│   ├── 04_Session_Storage/                     # Session reuse via storageState
+│   │   ├── 228_Session.spec.ts                 # Save logged-in session to JSON
+│   │   └── 229.TestVWo.spec.ts                 # Reuse saved session — skip login
+│   └── 05_Allure_Reporting/                    # Allure reporting examples
+│       └── 230_Login.spec.ts                   # Login test annotated with Allure metadata
+├── CustomTTAReporter.ts     # Custom HTML reporter (TheTestingAcademy)
 ├── playwright.config.ts     # Playwright configuration
 ├── package.json
 └── .github/
@@ -116,11 +119,21 @@ Demonstrates saving and reusing authenticated browser sessions to skip repetitiv
 - `228_Session.spec.ts` — log in once and persist cookies/localStorage with `context.storageState({ path })`
 - `229.TestVWo.spec.ts` — load the saved state via `test.use({ storageState })` and jump straight to authenticated pages
 
+### Allure Reporting (05_Allure_Reporting)
+Demonstrates rich test reporting via the Allure framework:
+- `230_Login.spec.ts` — annotate tests with `allure.epic`, `allure.feature`, `allure.story`, and `allure.description` for structured reports
+
 ## Viewing Reports
 
 ```bash
-# Open HTML report after test run
+# Open the default Playwright HTML report
 npx playwright show-report
+
+# Generate and open the Allure report
+npx allure generate ./allure-results --clean -o ./allure-report
+npx allure open ./allure-report
+
+# The custom TTA reporter writes its output to ./tta-report
 ```
 
 ## CI/CD
@@ -136,9 +149,9 @@ This project includes a GitHub Actions workflow that:
 The `playwright.config.ts` file includes:
 - Test directory: `./tests`
 - Parallel execution enabled
-- HTML reporter
+- Multiple reporters: HTML, Allure (`allure-playwright`), and the custom `CustomTTAReporter.ts`
 - Chromium browser configured
-- Trace collection on first retry
+- Trace, video, and screenshot capture set to `on` for every test (great for learning/debugging)
 - Headed mode enabled (`headless: false`) for easier learning and debugging
 
 ## Resources
